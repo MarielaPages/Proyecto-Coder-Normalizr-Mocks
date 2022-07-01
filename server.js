@@ -57,14 +57,15 @@ async function devolverMensajes(){
   const mensajes = {id:"mensajes", mensajes: messages}
   const normalizedMessages = normalizingMessages(mensajes)
 
-  //veo si funciona
-  //console.log("messages", JSON.stringify(messages).length)
-  //console.log("normalizedMessages", JSON.stringify(normalizedMessages).length)
+  //porcentaje de disminucion 
+  const difLong = JSON.stringify(messages).length - JSON.stringify(normalizedMessages).length
+  const porcentDismin = Math.round((difLong/JSON.stringify(messages).length)*100)
 
   //veo el contenido del objeto normalizado
-  console.log(inspect(normalizedMessages, false, 12, true))
+  //console.log(inspect(normalizedMessages, false, 12, true))
 
   io.sockets.emit('mensajesEnviados', messages)
+  io.sockets.emit('porcentComp', porcentDismin)
 }
 //Levanto el servidor io
 io.on('connection', socket => {

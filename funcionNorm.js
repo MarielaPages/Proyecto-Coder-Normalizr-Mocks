@@ -17,7 +17,6 @@ module.exports = function normalizingMessages(objANorm){
 
     //Normalizo
     const normalizedMessages = normalize(objANorm, mensajesSchema)
-    console.log("hola")
-
+    
     return normalizedMessages
 }

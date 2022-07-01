@@ -77,3 +77,15 @@ socket.on('mensajesEnviados', mensajes =>{
     }
 })
 
+socket.on('porcentComp', porcentaje => {
+    const percentContainer = document.getElementById("compressPerc")
+    if(porcentaje>0){
+        percentContainer.innerHTML = `The compression percentage is ${porcentaje}%`
+    }
+    else{
+        percentContainer.innerHTML = ''
+    }
+})
+
+
+

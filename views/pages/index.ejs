@@ -31,7 +31,8 @@
 
     <div class="d-flex flex-column align-items-center">
         <h3 class="mensajesTitulo">Centro de Mensajes</h3>
-        <div>
+        <h4 id="compressPerc"></h4>
+        <div class="d-flex flex-column align-items-center">
             <input type="email" class="form-control" required placeholder="email@email.com" id="email">
             <input type="text" class="form-control" required placeholder="Name" id="name">
             <input type="text" class="form-control" required placeholder="Last Name" id="lastName">
@@ -39,8 +40,10 @@
             <input type="text" class="form-control" required placeholder="Alias" id="alias">
             <input type="text" class="form-control" required placeholder="Url avatar" id="avatar">
             <div id="messagesContainer"></div>
-            <input type="text" class="form-control" required placeholder="Message" id="message">
-            <button class="btn btn-secondary" id="button2">Send</button>
+            <div>
+                <input type="text" class="form-control" required placeholder="Message" id="message">
+                <button class="btn btn-secondary" id="button2">Send</button>
+            </div>
         </div>
     </div>
 
