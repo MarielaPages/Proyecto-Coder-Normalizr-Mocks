@@ -4,11 +4,11 @@ module.exports = function normalizingMessages(objANorm){
     //armo los esquemas
     const authorSchema = new schema.Entity('authors')
 
-    const messageSchema = new schema.Entity('messages') //No entiendo porque no los toma. Es porque no es un objeto?
+    //const messageSchema = new schema.Entity('messages') //No entiendo porque no los toma. Es porque no es un objeto?
 
     const articleSchema = new schema.Entity('articles', {
     author: authorSchema,
-    message: messageSchema
+    //message: messageSchema
     })
 
     const mensajesSchema = new schema.Entity('mensajes', {

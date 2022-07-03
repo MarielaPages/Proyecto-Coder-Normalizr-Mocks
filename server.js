@@ -64,7 +64,7 @@ async function devolverMensajes(){
   //veo el contenido del objeto normalizado
   //console.log(inspect(normalizedMessages, false, 12, true))
 
-  io.sockets.emit('mensajesEnviados', messages)
+  io.sockets.emit('mensajesEnviados', normalizedMessages)
   io.sockets.emit('porcentComp', porcentDismin)
 }
 //Levanto el servidor io
@@ -88,7 +88,12 @@ io.on('connection', socket => {
     const mensajes = {id:"mensajes", mensajes: messages}
     const normalizedMessages = normalizingMessages(mensajes)
 
-    io.sockets.emit('mensajesEnviados', messages)
+    //porcentaje de disminucion 
+    const difLong = JSON.stringify(messages).length - JSON.stringify(normalizedMessages).length
+    const porcentDismin = Math.round((difLong/JSON.stringify(messages).length)*100)
+
+    io.sockets.emit('mensajesEnviados', normalizedMessages)
+    io.sockets.emit('porcentComp', porcentDismin)
   })
 });
 
